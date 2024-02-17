@@ -2,43 +2,69 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>obligatory assignment 1</title>
-    <script src="myscrips.js"></script>
-    <style>
-        *{
-            font-family: "Apple SD Gothic Neo",serif;
-        }
-        table{
-            font-family: "Apple SD Gothic Neo", serif;
-            border-collapse:collapse;
-        }
-        td, th{
-            font-weight:900;
-            border: 1px solid #b7b7b7;
-            padding:8px;
-            text-align:left;
-        }
-    </style>
+    <title>Title</title>
 </head>
+<style>
+    *{
+        font-family: "Apple SD Gothic Neo",serif;
+    }
+    table{
+        font-family: "Apple SD Gothic Neo", serif;
+        border-collapse:collapse;
+    }
+    th{
+        font-weight: 900;
+        border: 1px solid #b7b7b7;
+        padding:8px;
+        text-align:left;
+    }
+    td{
+        font-weight: lighter;
+        border: 1px solid #b7b7b7;
+        padding:8px;
+        text-align:left;
+    }
+    .inputArea{
+        width:50%;
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-auto-rows: minmax(auto, auto);
+    }
+</style>
 <body>
 <h1>Order movie tickets</h1>
-<p>Choose movie:<label for="film"></label><select id="film">
-    <option>My neighbor Totoro</option>
-    <option>Kiki's Delivery Service</option>
-    <option>Spirited Away</option>
-    <option>Howl's moving castle</option>
-    <option>Ponyo</option>
-    <option>Castle in the sky</option>
-</select></p>
-<p>Quantity:<label for="quantity"></label><input type="number" id="quantity"/></p>
-<p>First name:<label for="firstName"></label><input type="text" id="firstName"/></p>
-<p>Surname:<label for="surname"></label><input type="text" id="surname"/></p>
-<p>Phone number:<label for="phoneNumber"></label><input type="tel" id="phoneNumber"/></p>
-<p>Email:<label for="email"></label><input type="email" id="email"/></p>
-<button onclick="addOrders()">Buy ticket</button>
+<div class="inputArea">
+    <p>Movie:<label for="film"></label></p>
+    <p><select id="film" required aria-required="true"><option>Choose movie here ...</option>
+        <option>My neighbor Totoro</option>
+        <option>Kiki's Delivery Service</option>
+        <option>Spirited Away</option>
+        <option>Howl's moving castle</option>
+        <option>Ponyo</option>
+        <option>Castle in the sky</option>
+    </select></p>
+    <p id="noMovie"></p>
+    <p>Quantity:<label for="quantity"></label></p>
+    <p><input type="number" id="quantity" required aria-required="true"/></p>
+    <p id="wrongQt"></p>
+    <p>First name:<label for="firstName"></label></p>
+    <p><input type="text" id="firstName" required aria-required="true"/></p>
+    <p id="noName"></p>
+    <p>Surname:<label for="surname"></label></p>
+    <p><input type="text" id="surname" required aria-required="true"/></p>
+    <p id="noSurname"></p>
+    <p>Phone number:<label for="phoneNumber"></label></p>
+    <p><input type="tel" id="phoneNumber" required aria-required="true"/></p>
+    <p></p>
+    <p>Email:<label for="email" ></label></p>
+    <p><input type="email" id="email" required aria-required="true"/></p>
+    <p></p>
+</div>
+
+<button onclick="newOrder()">Buy ticket</button>
 
 <h2>Ticket orders</h2>
-<table>
+<table id="newOrder">
     <tr>
         <th>Movie</th>
         <th>Quantity</th>
@@ -47,11 +73,9 @@
         <th>Phone Number</th>
         <th>Email</th>
     </tr>
-    <tr id="newOrders">
-    </tr>
 </table>
 
 <p><button>Slett alle billettene</button></p>
-
+<script src="myscripts.js"></script>
 </body>
 </html>
