@@ -35,7 +35,8 @@
 <h1>Order movie tickets</h1>
 <div class="inputArea">
     <p>Movie:<label for="film"></label></p>
-    <p><select id="film" required aria-required="true"><option>Choose movie here ...</option>
+    <p><select id="film" onchange="validateFilm(this.value)">
+        <option id="optionzero">Choose movie here ...</option>
         <option>My neighbor Totoro</option>
         <option>Kiki's Delivery Service</option>
         <option>Spirited Away</option>
@@ -43,25 +44,24 @@
         <option>Ponyo</option>
         <option>Castle in the sky</option>
     </select></p>
-    <p id="noMovie"></p>
+    <p id="noMovie" style="color:red"></p>
     <p>Quantity:<label for="quantity"></label></p>
-    <p><input type="number" id="quantity" required aria-required="true"/></p>
-    <p id="wrongQt"></p>
+    <p><input type="number" id="quantity" onchange="validateQuantity(this.value)"/></p>
+    <p id="wrongQt" style="color:red"></p>
     <p>First name:<label for="firstName"></label></p>
-    <p><input type="text" id="firstName" required aria-required="true"/></p>
-    <p id="noName"></p>
+    <p><input type="text" id="firstName" onchange="validatefirstName(this.value)"/></p>
+    <p id="noName" style="color:red"></p>
     <p>Surname:<label for="surname"></label></p>
-    <p><input type="text" id="surname" required aria-required="true"/></p>
-    <p id="noSurname"></p>
+    <p><input type="text" id="surname" onchange="validateSurname(this.value)"/></p>
+    <p id="noSurname" style="color:red"></p>
     <p>Phone number:<label for="phoneNumber"></label></p>
-    <p><input type="tel" id="phoneNumber" required aria-required="true"/></p>
-    <p></p>
+    <p><input type="tel" id="phoneNumber" onchange="validatePhonenumber(this.value)"/></p>
+    <p id="noNumber" style="color:red"></p>
     <p>Email:<label for="email" ></label></p>
-    <p><input type="email" id="email" required aria-required="true"/></p>
-    <p></p>
+    <p><input type="email" id="email" onchange="validateEmail(this.value)"/></p>
+    <p id="noEmail" style="color:red"></p>
+    <p><input type="button" value="Order ticket" onclick="newOrder()"/></p>
 </div>
-
-<button onclick="newOrder()">Buy ticket</button>
 
 <h2>Ticket orders</h2>
 <table id="newOrder">
@@ -74,8 +74,9 @@
         <th>Email</th>
     </tr>
 </table>
+<p id="error"></p>
 
-<p><button>Slett alle billettene</button></p>
+<p><button onclick="deleteOrders()">Slett alle billettene</button></p>
 <script src="myscripts.js"></script>
 </body>
 </html>
