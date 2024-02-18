@@ -18,13 +18,13 @@
         padding:8px;
         text-align:left;
     }
-    td{
+    td{   /* table value styling */
         font-weight: lighter;
         border: 1px solid #b7b7b7;
         padding:8px;
         text-align:left;
     }
-    .inputArea{
+    .inputArea{ /*inputbox styling */
         width:50%;
         display:grid;
         grid-template-columns: repeat(3, 1fr);
@@ -35,7 +35,7 @@
 <h1>Order movie tickets</h1>
 <div class="inputArea">
     <p>Movie:<label for="film"></label></p>
-    <p><select id="film" onchange="validateFilm(this.value)">
+    <p><select id="film" onchange="validateFilm(this.value)">  <!--Drop down list to choose movie-->
         <option id="optionzero">Choose movie here ...</option>
         <option>My neighbor Totoro</option>
         <option>Kiki's Delivery Service</option>
@@ -45,9 +45,9 @@
         <option>Castle in the sky</option>
     </select></p>
     <p id="noMovie" style="color:red"></p>
-    <p>Quantity:<label for="quantity"></label></p>
+    <p>Quantity:<label for="quantity"></label></p>   <!--Input boxes for info -->
     <p><input type="number" id="quantity" onchange="validateQuantity(this.value)"/></p>
-    <p id="wrongQt" style="color:red"></p>
+    <p id="wrongQt" style="color:red"></p>  <!--Input validation -->
     <p>First name:<label for="firstName"></label></p>
     <p><input type="text" id="firstName" onchange="validatefirstName(this.value)"/></p>
     <p id="noName" style="color:red"></p>
@@ -60,9 +60,11 @@
     <p>Email:<label for="email" ></label></p>
     <p><input type="email" id="email" onchange="validateEmail(this.value)"/></p>
     <p id="noEmail" style="color:red"></p>
+    <!-- Button to create a new order-->
     <p><input type="button" value="Order ticket" onclick="newOrder()"/></p>
 </div>
 
+<!--Display orders created in a table -->
 <h2>Ticket orders</h2>
 <table id="newOrder">
     <tr>
@@ -75,8 +77,9 @@
     </tr>
 </table>
 <p id="error"></p>
-
+ <!-- Button to delete all the orders created-->
 <p><button onclick="deleteOrders()">Slett alle billettene</button></p>
+<!-- path to javascript file-->
 <script src="myscripts.js"></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
-const movieOrders=[];
-function showOrders(){     //show registered orders
+const movieOrders=[];  //empty array for movie orders
+function showOrders(){   //function to show registered orders in a table
     let output= "<table><tr><th>Movie</th><th>Quantity</th><th>First Name</th><th>Surname</th><th>Phone Number</th><th>Email</th></tr>"
         for (let m of movieOrders){
             output += "<tr>";
@@ -12,11 +12,13 @@ function showOrders(){     //show registered orders
                 output += "</tr>";
         }
     output += "</table>";
+        //show the table where the id="newOrder"
     document.getElementById("newOrder").innerHTML=output;
     console.log(output);
     }
 
-function validateFilm(film){
+    //input validations for all the input boxes and dropdown list
+function validateFilm(film){  //validate a movie is chosen
     const option=document.getElementById("optionzero").value;
     if(film === option){
         document.getElementById("noMovie").innerHTML="You must choose a movie.";
@@ -31,7 +33,7 @@ function validateFilm(film){
     }
 }
 
-function validateQuantity(quantity){
+function validateQuantity(quantity){ //validate the right quantity
     const value=Number(quantity);
     if(quantity === ""){
         document.getElementById("wrongQt").innerHTML="You must enter a quantity.";
@@ -47,7 +49,7 @@ function validateQuantity(quantity){
         return true;
     }
 }
-function validatefirstName(firstName){
+function validatefirstName(firstName){  //validate input name with at least 2 letters
     const regexp = /^[a-zA-ZæøåÆØÅ. \-]{2,20}/;
     const ok = regexp.test(firstName);
     if(firstName === ""){
@@ -62,7 +64,7 @@ function validatefirstName(firstName){
     }
 }
 
-function validateSurname(surname){
+function validateSurname(surname){  //validate input name with at least 2 letters
     const regexp = /^[a-zA-ZæøåÆØÅ. \-]{2,20}/;
     const ok = regexp.test(surname);
     if(surname===""){
@@ -77,7 +79,7 @@ function validateSurname(surname){
     }
 }
 
-function validatePhonenumber(phoneNumber){
+function validatePhonenumber(phoneNumber){  //validate number with 8 digits
     const regexp = /^[0-9]{8}/;
     const ok = regexp.test(phoneNumber);
     if(phoneNumber==="") {
@@ -93,7 +95,7 @@ function validatePhonenumber(phoneNumber){
 
 }
 
-function validateEmail(email){
+function validateEmail(email){   //validate email with a pattern
     const regexp = /^[a-zA-Z0-9._%+-]+@[a-zA-Z]{2}/;
     const ok = regexp.test(email);
     if(email===""){
@@ -109,7 +111,7 @@ function validateEmail(email){
 }
 
 
-function newOrder() {   //register new orders
+function newOrder() {   //function to register new orders
     const film = document.getElementById("film").value;
     const quantity = document.getElementById("quantity").value;
     const firstName = document.getElementById("firstName").value;
@@ -124,6 +126,7 @@ function newOrder() {   //register new orders
     const phoneOK = validatePhonenumber(phoneNumber);
     const emailOK = validateEmail(email);
 
+    //to check if all input has values
     if(filmOK && quantityOK && fnameOK && surnameOK && phoneOK && emailOK){
         const order = {
             film: film,
@@ -145,7 +148,7 @@ function newOrder() {   //register new orders
     }
 }
 
-function deleteOrders(){
+function deleteOrders(){   //function to delete all the orders registered
     movieOrders.splice(0,movieOrders.length);
     showOrders();
 }
