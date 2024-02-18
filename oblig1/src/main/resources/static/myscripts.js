@@ -15,29 +15,15 @@ function showOrders(){     //show registered orders
     document.getElementById("newOrder").innerHTML=output;
     console.log(output);
     }
-
+function 
 
 function newOrder() {   //register new orders
     const film = document.getElementById("film").value;
     const quantity = document.getElementById("quantity").value;
-        if(quantity <= 0){
-            document.getElementById("wrongQt").innerHTML="Please input a valid quantity.";
-        }
-        if(quantity===""){
-            document.getElementById("wrongQt").innerHTML="Quantity cannot be empty.";
-        }
-        else{
-            document.getElementById("wrongQt").innerHTML="";
-        }
     const firstName = document.getElementById("firstName").value;
-        if(firstName===""){
-            document.getElementById("noName").innerHTML="Please input a name.";
-        }
-        else{document.getElementById("noName").innerHTML = "";}
     const surname = document.getElementById("surname").value;
     const phoneNumber = document.getElementById("phoneNumber").value;
     const email = document.getElementById("email").value;
-
 
     const order = {
         film: film,
